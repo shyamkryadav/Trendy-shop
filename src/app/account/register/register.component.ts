@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,11 +15,10 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
 
+  constructor(private router: Router) {}
   onSubmit() {
-    // Add registration logic here
-    console.log('Username:', this.username);
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    // Example: Send registration data to a backend service
+    if (this.username && this.email && this.password) {
+       this.router.navigate(['/login']);
+    }
   }
 }
