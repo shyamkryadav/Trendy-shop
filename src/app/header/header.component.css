@@ -2,7 +2,7 @@
 .header {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 
 .container {
@@ -15,7 +15,12 @@
 }
 
 .header__logo img {
+    width: 80px;
+    height: 64px;
+    padding: 0;
+    margin: 0;
     max-width: 100px;
+    border-radius: 60px;
 }
 
 .nav__list {
@@ -34,6 +39,7 @@
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav__link:hover {
@@ -46,12 +52,15 @@
 }
 
 .header__icon {
+    border: 2px solid skyblue;
     margin-left: 15px;
+    padding: 5px 20px;
+    border-radius: 10%;
     color: #333333;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .header__icon:hover {
-    color: #ff6600;
+    color: #005eff;
 }
