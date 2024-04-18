@@ -1,22 +1,32 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {
+  AuthServiceProxy,
+  LoginModel,
+} from '../../../shared/service-proxies/service-proxies';
+import { ServiceProxyModule } from '../../../shared/service-proxies/service-proxy.module';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, ServiceProxyModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  logindata: LoginModel = new LoginModel();
+  constructor(private _authProxy: AuthServiceProxy) {}
 
   onSubmit() {
-    // Add authentication logic here
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-    // Example: Check username and password against stored credentials or call an authentication service
+    this._authProxy.login(this.logindata).subscribe((res) => {
+      console.log(res);
+    });
   }
 }
+
+
+
+// email: 'sdfas';
+// password: 'adfas';
+// username: 'dsaf';

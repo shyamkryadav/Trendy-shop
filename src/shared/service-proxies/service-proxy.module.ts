@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [],
-    imports: [CommonModule],
+  imports: [CommonModule],
   providers: [
     ApiServiceProxies.ProductServiceProxy,
     ApiServiceProxies.ProductCategoryServiceProxy,
