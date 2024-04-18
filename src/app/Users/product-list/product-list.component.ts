@@ -1,28 +1,35 @@
 import { Component } from '@angular/core';
-import { Product } from '../../Interfce/product';
-import { AppService } from '../../services/app.service';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import {
+  ProductCategory,
+  ProductServiceProxy,
+  ProductCategoryServiceProxy,
+  Product,
+} from '../../../shared/service-proxies/service-proxies';
+import { ServiceProxyModule } from '../../../shared/service-proxies/service-proxy.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ServiceProxyModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
   products: Product[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(
+    private _productProxcy: ProductServiceProxy,
+    private router: Router
+  ) {}
   ngOnInit(): void {
-    this.fetchData();
+    this._productProxcy.getAllProduct().subscribe((res) => {
+      console.log(res);
+      this.products = res;
+    });
   }
-  fetchData() {
-    this.http
-      .get('https://localhost:7142/api/Product/GetAllProduct')
-      .subscribe((data: any) => {
-        this.products = data;
-      });
+
+  goToProductDetail(id: number) {
+    this.router.navigate(['/product', id]);
   }
 }

@@ -4,6 +4,7 @@ import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { CartComponent } from './Users/cart/cart.component';
 import { AboutComponent } from './about/about.component';
+import { ProductDetailComponent } from './Users/product-detail/product-detail.component';
 
 export const routes: Routes = [
   {
@@ -11,11 +12,12 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./Admin/admin.module').then((m) => m.AdminModule),
   },
-  
+
   //  { path: '', redirectTo: '/admin', pathMatch: 'full' }, // Redirect to admin by default
   // { path: '**', redirectTo: '/admin' } // Redirect to admin for any other route
-  
+
   { path: 'product', component: ProductListComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },

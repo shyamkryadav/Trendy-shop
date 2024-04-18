@@ -1,5 +1,6 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { API_BASE_URL } from '../shared/service-proxies/service-proxies';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -9,6 +10,10 @@ import {
   withFetch,
 } from '@angular/common/http';
 
+export function getRemoteServiceBaseUrl(): string {
+  return 'https://localhost:7142';
+}
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
@@ -16,5 +21,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideHttpClient(withFetch()),
     provideClientHydration(),
+    { provide: API_BASE_URL, useFactory: getRemoteServiceBaseUrl },
   ],
 };
