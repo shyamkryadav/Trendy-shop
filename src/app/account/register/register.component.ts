@@ -23,14 +23,10 @@ export class RegisterComponent {
   onSubmit() {
     console.log(this.registerData);
 
-    // this._authProxy.register(this.registerData).subscribe((res) => {
-    // if (res) {
+    this._authProxy.register(this.registerData).subscribe((res) => {
+    if (res) {
     this.router.navigate(['/login']);
-    // }
-    // });
-
-    if (this.registerData) {
-      this.router.navigate(['/login']);
     }
+    });
   }
 }

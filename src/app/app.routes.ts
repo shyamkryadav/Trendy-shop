@@ -11,11 +11,8 @@ export const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./Admin/admin.module').then((m) => m.AdminModule),
+    data: { preload: true },
   },
-
-  //  { path: '', redirectTo: '/admin', pathMatch: 'full' }, // Redirect to admin by default
-  // { path: '**', redirectTo: '/admin' } // Redirect to admin for any other route
-
   { path: 'product', component: ProductListComponent },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'login', component: LoginComponent },

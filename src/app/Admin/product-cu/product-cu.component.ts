@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { AppService } from '../../services/app.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import {
+  Product,
+  ProductServiceProxy,
+} from '../../../shared/service-proxies/service-proxies';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-cu',
@@ -11,16 +16,21 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './product-cu.component.css',
 })
 export class ProductCUComponent {
-  // constructor(private _appServices: AppService) {}
+  products:any;
+  constructor(
+    private _productProxcy: ProductServiceProxy,
+    private router: Router
+  ) {}
 
-  // ngonInit(): void {
-  //   this.fetchProduct();
-  // }
-  // fetchProduct() {
-  //   console.log("shyam");
+  ngOnInit(): void {
+    this.LoadAllProductData();
+  }
 
-  //   this._appServices.getProduct().subscribe((res=>{
-  //     console.log(res);
-  //   }))
-  // }
+  LoadAllProductData() {
+    this._productProxcy.getAllProduct().subscribe((res) => {
+      console.log(res);
+      this.products = res;
+    });
+  }
+
 }

@@ -26,7 +26,3 @@ export class LoginComponent {
 }
 
 
-
-// email: 'sdfas';
-// password: 'adfas';
-// username: 'dsaf';
