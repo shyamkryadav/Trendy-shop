@@ -1,12 +1,9 @@
-/* styles.css */
-
-/* Basic styles for the dashboard layout */
 .dashboard-container {
   display: flex;
 }
 
 .sidebar {
-    height: calc(100vh - 80px);
+  height: calc(100vh - 80px);
   width: 250px;
   background-color: #333;
   color: #fff;

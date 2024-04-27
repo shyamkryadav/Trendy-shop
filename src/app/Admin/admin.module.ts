@@ -5,6 +5,7 @@ import { ProductCUComponent } from './product-cu/product-cu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
 import { ServiceProxyModule } from '../../shared/service-proxies/service-proxy.module';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: DashboardComponent },
           { path: 'product', component: ProductCUComponent },
+          { path: 'category', component: CategoryListComponent },
         ],
       },
       { path: '**', redirectTo: '' },

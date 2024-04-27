@@ -1,3 +1,14 @@
-<router-outlet></router-outlet>
+<div class="dashboard-container">
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="/admin/product">Dashboard</a></li>
+      <li><a routerLink="/admin/product">Orders</a></li>
+      <li><a routerLink="/admin/product" (click)="gotoProduct()">Products</a></li>
+      <li><a routerLink="/admin/product" (click)="gotoCategory()">Category</a></li>
+    </ul>
+  </div>
 
-    <!-- <router-outlet></router-outlet> -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

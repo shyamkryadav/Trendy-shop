@@ -1,1 +1,15 @@
-<p>category-list works!</p>
+<div class="page-container">
+  <button class="add-category-button">Add category</button>
+  <div class="category-sections">
+    <div class="category-card" *ngFor="let category of productsCategory">
+      <div class="category-header">
+        <button class="edit-button">Edit</button>
+        <button class="delete-button">Delete</button>
+      </div>
+      <div class="category-info">
+        <h2>{{ category.categoryName }}</h2>
+        <p>{{ category.categoryDescription }}</p>
+      </div>
+    </div>
+  </div>
+</div>
