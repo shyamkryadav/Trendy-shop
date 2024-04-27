@@ -1,11 +1,14 @@
 <h2 class="textLabel">Latest Product</h2>
 <div class="product-container">
-  <div class="product-card" *ngFor="let product of products"  (click)="goToProductDetail(product.id)"  >
+  <div class="product-card" *ngFor="let product of products"  >
     <h3>{{ product.productName }}</h3>
     <img [src]="product.productImgUrl" alt="{{ product.productName }}">
     <p>{{ product.productDescription }}</p>
     <p class="price">Price: {{ product.productPrice | currency }}</p>
     <p class="category">Category: {{ product.productCategoryName }}</p>
     <p>{{ product.productCategoryDescription }}</p>
+    <button class="button" (click)="goToProductDetail(product.id)">View Details</button>
+    <button class="button" (click)="addToCart(product.id)">Add to Cart</button>
   </div>
+
 </div>
