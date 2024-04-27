@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product, ProductServiceProxy } from '../../../shared/service-proxies/service-proxies';
+import {
+  CartServiceProxy,
+  Product,
+  ProductServiceProxy,
+} from '../../../shared/service-proxies/service-proxies';
 import { CommonModule } from '@angular/common';
 import { ServiceProxyModule } from '../../../shared/service-proxies/service-proxy.module';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,7 +22,9 @@ export class ProductDetailComponent {
   product: any;
   constructor(
     private route: ActivatedRoute,
-    private _productProxcy: ProductServiceProxy
+    private _productProxcy: ProductServiceProxy,
+    private _cartProxcy: CartServiceProxy,
+    private toastr: ToastrService
   ) {}
   ngOnInit() {
     const productId = this.route.snapshot.paramMap.get('id');
@@ -27,5 +34,14 @@ export class ProductDetailComponent {
         this.product = res;
       });
     }
+  }
+
+  addToCart(id: number) {
+    this._cartProxcy.addToCart(id).subscribe((res) => {
+      console.log(res.productName);
+       this.toastr.success(`${res.productName} added to cart`, 'Success');
+
+      console.log(res);
+    });
   }
 }

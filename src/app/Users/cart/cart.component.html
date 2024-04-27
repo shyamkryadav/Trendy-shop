@@ -1,9 +1,29 @@
 <!-- cart.component.html -->
 <div class="cart">
+  @for (item of products; track $index) {
   <div class="cart-item">
-    <h3>Product Name</h3>
-    <p>Quantity: 2</p>
-    <p>$XX.XX</p>
+    <img src="{{ item.productImgUrl }}" alt="{{ item.productName }}" />
+    <div>
+      <h3>{{ item.productName }}</h3>
+      <p>{{ item.productDescription }}</p>
+      <p>Price {{ item.productPrice | currency }}</p>
+    </div>
   </div>
-  <!-- Repeat this block for each cart item -->
+  }
+
+  <div class="summary">
+    <h2>Summary</h2>
+    <!-- <p>Total Quantity: {{ totalQuantity }}</p> -->
+    <p>Total Amount: {{ totalAmount  | currency }}</p>
+  </div>
+
+  <div class="delivery">
+    <h2>Delivery Address</h2>
+    <p>{{ deliveryAddress }}</p>
+  </div>
+
+  <div class="actions">
+    <!-- <button (click)="addToCart(2)">Add to Cart</button> -->
+    <button (click)="processPayment()">Proceed to Payment</button>
+  </div>
 </div>

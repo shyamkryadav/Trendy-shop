@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
     ApiServiceProxies.ProductServiceProxy,
     ApiServiceProxies.ProductCategoryServiceProxy,
     ApiServiceProxies.UserServiceProxy,
+    ApiServiceProxies.CartServiceProxy,
   ],
 })
 export class ServiceProxyModule {}
