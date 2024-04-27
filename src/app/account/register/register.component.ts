@@ -3,10 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
-  AuthServiceProxy,
+ 
   User,
+  UserServiceProxy,
 } from '../../../shared/service-proxies/service-proxies';
 import { ServiceProxyModule } from '../../../shared/service-proxies/service-proxy.module';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -18,15 +20,22 @@ import { ServiceProxyModule } from '../../../shared/service-proxies/service-prox
 export class RegisterComponent {
   registerData: User = new User();
 
-  constructor(private router: Router, private _authProxy: AuthServiceProxy) {}
+  constructor(
+    private router: Router,
+    private _userService: UserServiceProxy,
+    private toastr: ToastrService
+  ) {}
 
   onSubmit() {
-    console.log(this.registerData);
-
-    this._authProxy.register(this.registerData).subscribe((res) => {
-    if (res) {
-    this.router.navigate(['/login']);
-    }
+    this._userService.register(this.registerData).subscribe((res) => {
+      if (res) {
+        console.log(res);
+        this.toastr.success('Account Register ', 'Sucess');
+        this.router.navigate(['/login']);
+      }
     });
+  }
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }
