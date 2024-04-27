@@ -1,11 +1,19 @@
 form {
-  max-width: 400px;
+  margin: 20px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
+  gap: 10px 30px;
 }
-
+.form-group{
+  width: 500px;
+}
 label {
   display: block;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
 
 input[type="text"],
@@ -13,7 +21,7 @@ input[type="number"],
 textarea {
   width: 100%;
   padding: 8px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -27,6 +35,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+  margin: 10px;
 }
 
 button:hover {
