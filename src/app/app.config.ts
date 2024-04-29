@@ -29,6 +29,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     { provide: API_BASE_URL, useFactory: getRemoteServiceBaseUrl },
     provideToastr({}),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, provideAnimationsAsync(),
   ],
 };
