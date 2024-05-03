@@ -9,7 +9,7 @@
       <p>{{ item.productDescription }}</p>
       <p>Price {{ item.productPrice | currency }}</p>
     </div>
-    <span class="delete-btn">Delete</span>
+    <span class="delete-btn" (click)="deleteCartItem(item.id)">Delete</span>
   </div>
   }
 

@@ -44,10 +44,15 @@ export class CartComponent {
     });
   }
 
-  deleteCartItem(id:number){
-    // this._cartProxcy.
+  deleteCartItem(id: number) {
+    this._cartProxcy.deleteCartItem(id).subscribe((res) => {
+      console.log(res);
+      if(res){
+      this.LoadAllCartItem();
+      this.toastr.error('Delete Cart Item');
+      }
+    });
   }
-
 
   addToCart(id: number) {
     // Implement your add to cart functionality
