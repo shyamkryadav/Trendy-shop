@@ -1,14 +1,21 @@
-<h2 class="textLabel">Latest Product</h2>
+<h2 class="textLabel">Latest Products</h2>
 <div class="product-container">
-  <div class="product-card" *ngFor="let product of products"  >
-    <h3>{{ product.productName }}</h3>
-    <img [src]="product.productImgUrl" alt="{{ product.productName }}">
+  <div class="product-card" *ngFor="let product of products">
+    <h3 class="rate">{{ product.productName }}</h3>
+    <div class="cen">
+      <img [src]="product.productImgUrl" alt="{{ product.productName }}" />
+    </div>
     <p>{{ product.productDescription }}</p>
-    <p class="price">Price: {{ product.productPrice | currency }}</p>
-    <p class="category">Category: {{ product.productCategoryName }}</p>
+    <p class="price">
+      Price: <span class="rate">{{ product.productPrice | currency }}</span>
+    </p>
+    <p class="category">
+      Category: <span class="rate"> {{ product.productCategoryName }}</span>
+    </p>
     <p>{{ product.productCategoryDescription }}</p>
-    <button class="button" (click)="goToProductDetail(product.id)">View Details</button>
+    <button class="button" (click)="goToProductDetail(product.id)">
+      View Details
+    </button>
     <button class="button" (click)="addToCart(product.id)">Add to Cart</button>
   </div>
-
 </div>

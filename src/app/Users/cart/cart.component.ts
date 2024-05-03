@@ -44,6 +44,11 @@ export class CartComponent {
     });
   }
 
+  deleteCartItem(id:number){
+    // this._cartProxcy.
+  }
+
+
   addToCart(id: number) {
     // Implement your add to cart functionality
   }

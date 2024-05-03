@@ -20,29 +20,34 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
-  display: flex; 
+  display: flex;
   gap: 10px;
+  position: relative;
 }
 
-.cart-item  img{
- width: 200px;
- height: 150px;
+.cart-item img {
+  width: 200px;
+  height: 150px;
 }
-
 
 /* cart.component.css */
-.summary, .delivery, .actions {
+.summary,
+.delivery,
+.actions {
   margin-top: 20px;
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
 }
 
-.summary h2, .delivery h2, .actions h2 {
+.summary h2,
+.delivery h2,
+.actions h2 {
   margin-bottom: 10px;
 }
 
-.summary p, .delivery p {
+.summary p,
+.delivery p {
   margin: 5px 0;
 }
 
@@ -58,4 +63,19 @@
 
 .actions button:hover {
   background-color: #0056b3;
+}
+.delete-btn {
+  height: 28px;
+  width: 90px;
+  background-color: #eb4343;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
 }

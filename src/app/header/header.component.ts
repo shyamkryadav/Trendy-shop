@@ -39,7 +39,6 @@ export class HeaderComponent {
   LoadAllCartItem() {
     this._cartProxcy.getCartItems().subscribe((res) => {
       if (res) {
-        console.log(res);
         this.totalQuantity = res.length
         this.products = res;
       }
