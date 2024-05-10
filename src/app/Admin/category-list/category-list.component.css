@@ -47,7 +47,7 @@
 }
 .add-category-button {
   position: absolute;
-  top: 5px;
+  top: 0;
   right: 10px;
   background-color: #28a745;
   color: #fff;

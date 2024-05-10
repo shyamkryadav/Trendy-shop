@@ -1,0 +1,27 @@
+<div class="dialog-container">
+  <h2>Add Category</h2>
+  <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+    <div class="form-group">
+      <label for="categoryName">Category Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="categoryName"
+        name="categoryName"
+        [(ngModel)]="productCategory.categoryName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="categoryDescription">Category Description:</label>
+      <textarea
+        class="form-control"
+        id="categoryDescription"
+        name="categoryDescription"
+        [(ngModel)]="productCategory.categoryDescription"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

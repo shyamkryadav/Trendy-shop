@@ -1,10 +1,15 @@
 <div class="page-container">
-  <button class="add-category-button">Add category</button>
+  <h2 class="text-center fw-bold">Category Details</h2>
+  <button class="add-category-button" (click)="openAddCategoryDialog()">
+    Add category
+  </button>
   <div class="category-sections">
     <div class="category-card" *ngFor="let category of productsCategory">
       <div class="category-header">
         <button class="edit-button">Edit</button>
-        <button class="delete-button">Delete</button>
+        <button class="delete-button" (click)="delete(category.id)">
+          Delete
+        </button>
       </div>
       <div class="category-info">
         <h2>{{ category.categoryName }}</h2>
